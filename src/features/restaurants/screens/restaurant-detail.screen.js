@@ -24,7 +24,7 @@ export const RestaurantDetailScreen = ({ route }) => {
           onPress={() => setBreakfastExpanded(!breakfastExpanded)}
         >
           <List.Item title="Eggs Benedict" />
-          <List.Item title="Sausage, Egg, and Cheese Bagel" />
+          <List.Item title="Classic Breakfast" />
         </List.Accordion>
 
         <List.Accordion
@@ -33,9 +33,9 @@ export const RestaurantDetailScreen = ({ route }) => {
           expanded={lunchExpanded}
           onPress={() => setLunchExpanded(!lunchExpanded)}
         >
-          <List.Item title="Pulled Pork Sandwich" />
-          <List.Item title="Sake Don" />
-          <List.Item title="Banh Mi" />
+          <List.Item title="Burger w/ Fries" />
+          <List.Item title="Steak Sandwich" />
+          <List.Item title="Mushroom Soup" />
         </List.Accordion>
 
         <List.Accordion
@@ -44,9 +44,9 @@ export const RestaurantDetailScreen = ({ route }) => {
           expanded={dinnerExpanded}
           onPress={() => setDinnerExpanded(!dinnerExpanded)}
         >
-          <List.Item title="Chicken Piccata" />
-          <List.Item title="Pizza" />
-          <List.Item title="Fish and Chips" />
+          <List.Item title="Spaghetti Bolognese" />
+          <List.Item title="Veal Cutlet with Chicken Mushroom Rotini" />
+          <List.Item title="Steak Frites" />
         </List.Accordion>
 
         <List.Accordion
@@ -55,10 +55,11 @@ export const RestaurantDetailScreen = ({ route }) => {
           expanded={drinksExpanded}
           onPress={() => setDrinksExpanded(!drinksExpanded)}
         >
-          <List.Item title="Boba Tea" />
-          <List.Item title="Smoothie" />
-          <List.Item title="Hot Chocolate" />
-          <List.Item title="Soda" />
+          <List.Item title="Coffee" />
+          <List.Item title="Tea" />
+          <List.Item title="Modelo" />
+          <List.Item title="Coke" />
+          <List.Item title="Fanta" />
         </List.Accordion>
       </ScrollView>
     </SafeArea>
