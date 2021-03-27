@@ -1,3 +1,7 @@
 import React from "react";
 
-const RegisterScreen = () => {};
+import { AccountBackground } from "../components/account.styles";
+
+export const RegisterScreen = () => {
+  return <AccountBackground />;
+};
