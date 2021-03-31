@@ -3,26 +3,26 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { AuthenticationContext } from "../authentication/authentication.context";
 
-export const FavouritesContext = createContext();
+export const FavoritesContext = createContext();
 
-export const FavouritesContextProvider = ({ children }) => {
+export const FavoritesContextProvider = ({ children }) => {
   const { user } = useContext(AuthenticationContext);
-  const [favourites, setFavourites] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
-  const saveFavourites = async (value, uid) => {
+  const saveFavorites = async (value, uid) => {
     try {
       const jsonValue = JSON.stringify(value);
-      await AsyncStorage.setItem("@favourites-${uid}", jsonValue);
+      await AsyncStorage.setItem("@favorites-${uid}", jsonValue);
     } catch (e) {
       console.log("error storing", e);
     }
   };
 
-  const loadFavourites = async (uid) => {
+  const loadFavorites = async (uid) => {
     try {
-      const value = await AsyncStorage.getItem("@favourites");
+      const value = await AsyncStorage.getItem("@favorites");
       if (value !== null) {
-        setFavourites(JSON.parse(value));
+        setFavorites(JSON.parse(value));
       }
     } catch (e) {
       console.log("error loading", e);
@@ -30,38 +30,38 @@ export const FavouritesContextProvider = ({ children }) => {
   };
 
   const add = (restaurant) => {
-    setFavourites([...favourites, restaurant]);
+    setFavorites([...favorites, restaurant]);
   };
 
   const remove = (restaurant) => {
-    const newFavourites = favourites.filter(
+    const newFavorites = favorites.filter(
       (x) => x.placeId !== restaurant.placeId
     );
 
-    setFavourites(newFavourites);
+    setFavorites(newFavorites);
   };
 
   useEffect(() => {
     if (user) {
-      loadFavourites();
+      loadFavorites();
     }
   }, [user.uid]);
 
   useEffect(() => {
     if (user) {
-      saveFavourites(favourites);
+      saveFavorites(favorites);
     }
-  }, [favourites, user.uid]);
+  }, [favorites, user.uid]);
 
   return (
-    <FavouritesContext.Provider
+    <FavoritesContext.Provider
       value={{
-        favourites,
-        addToFavourites: add,
-        removeFromFavourites: remove,
+        favorites,
+        addToFavorites: add,
+        removeFromFavorites: remove,
       }}
     >
       {children}
-    </FavouritesContext.Provider>
+    </FavoritesContext.Provider>
   );
 };

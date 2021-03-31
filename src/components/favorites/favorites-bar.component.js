@@ -5,21 +5,21 @@ import { Spacer } from "../spacer/spacer.component";
 import { CompactRestaurantInfo } from "../restaurant/compact-restaurant-info.component";
 import { Text } from "../typography/text.component";
 
-const FavouritesWrapper = styled.View`
+const FavoritesWrapper = styled.View`
   padding: 10px;
 `;
-export const FavouritesBar = ({ favourites, onNavigate }) => {
-  if (!favourites.length) {
+export const FavoritesBar = ({ favorites, onNavigate }) => {
+  if (!favorites.length) {
     return null;
   }
   return (
-    <FavouritesWrapper>
+    <FavoritesWrapper>
       <Spacer variant="left.large">
-        <Text variant="caption">Favourites</Text>
+        <Text variant="caption">Favorites</Text>
       </Spacer>
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {favourites.map((restaurant) => {
+        {favorites.map((restaurant) => {
           const key = restaurant.name;
           return (
             <Spacer key={key} position="left" size="medium">
@@ -36,6 +36,6 @@ export const FavouritesBar = ({ favourites, onNavigate }) => {
           );
         })}
       </ScrollView>
-    </FavouritesWrapper>
+    </FavoritesWrapper>
   );
 };

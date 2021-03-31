@@ -3,11 +3,12 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
 import { RestaurantsNavigator } from "./restaurants.navigator";
+import { SettingsNavigator } from "./settings.navigator";
 import { MapScreen } from "../../features/map/screens/map.screen";
-import { FavouritesContextProvider } from "../../services/favourites/favourites.context";
+
+import { FavoritesContextProvider } from "../../services/favorites/favorites.context";
 import { LocationContextProvider } from "../../services/location/location.context";
 import { RestaurantsContextProvider } from "../../services/restaurants/restaurants.context";
-import { SettingsNavigator } from "./settings.navigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -27,7 +28,7 @@ const createScreenOptions = ({ route }) => {
 };
 
 export const AppNavigator = () => (
-  <FavouritesContextProvider>
+  <FavoritesContextProvider>
     <LocationContextProvider>
       <RestaurantsContextProvider>
         <Tab.Navigator
@@ -43,5 +44,5 @@ export const AppNavigator = () => (
         </Tab.Navigator>
       </RestaurantsContextProvider>
     </LocationContextProvider>
-  </FavouritesContextProvider>
+  </FavoritesContextProvider>
 );
