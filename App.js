@@ -2,6 +2,7 @@ import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import React from "react";
 import { ThemeProvider } from "styled-components/native";
 import * as firebase from "firebase";
+import * as Font from "expo-font";
 
 import {
   useFonts as useOswald,
@@ -28,12 +29,16 @@ if (!firebase.apps.length) {
 }
 
 export default function App() {
-  const [oswaldLoaded] = useOswald({
-    Oswald_400Regular,
+  const [oswaldLoaded] = useOswald(() => {
+    Font.loadAsync({
+      Oswald_400Regular,
+    });
   });
 
-  const [latoLoaded] = useLato({
-    Lato_400Regular,
+  const [latoLoaded] = useLato(() => {
+    Font.loadAsync({
+      Lato_400Regular,
+    });
   });
 
   if (!oswaldLoaded || !latoLoaded) {

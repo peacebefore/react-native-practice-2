@@ -14,7 +14,7 @@ import { FavoritesContext } from "../../../services/favorites/favorites.context"
 import { Search } from "../components/search.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 
-import { RestaurantList } from "./restaurant-list.styles";
+import { RestaurantList } from "../components/restaurant-list.styles";
 
 const Loading = styled(ActivityIndicator)`
   margin-left: -25px;
