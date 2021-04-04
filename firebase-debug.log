@@ -1,0 +1,21 @@
+[debug] [2021-04-04T03:37:23.899Z] ----------------------------------------------------------------------
+[debug] [2021-04-04T03:37:23.901Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2021-04-04T03:37:23.902Z] CLI Version:   9.8.0
+[debug] [2021-04-04T03:37:23.902Z] Platform:      win32
+[debug] [2021-04-04T03:37:23.902Z] Node Version:  v10.16.0
+[debug] [2021-04-04T03:37:23.903Z] Time:          Sat Apr 03 2021 20:37:23 GMT-0700 (Pacific Daylight Time)
+[debug] [2021-04-04T03:37:23.904Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-04-04T03:37:23.920Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-04-04T03:37:23.920Z] > authorizing via signed-in user
+[debug] [2021-04-04T03:37:23.921Z] [iam] checking project mealstogo-83d89 for permissions ["firebase.projects.get"]
+[debug] [2021-04-04T03:37:23.926Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-04-04T03:37:23.926Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-04T03:37:24.474Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Sun, 04 Apr 2021 03:37:25 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-04T03:37:24.494Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mealstogo-83d89:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2021-04-04T03:37:25.278Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 04 Apr 2021 03:37:26 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=55","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-04T03:37:25.283Z] > refreshing access token with scopes: []
+[debug] [2021-04-04T03:37:25.283Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
