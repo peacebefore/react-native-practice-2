@@ -7,11 +7,11 @@ import { FadeInView } from "../../../components/animations/fade.animation";
 import { SafeArea } from "../../../components/utility/safe-area.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
-import { FavouritesBar } from "../../../components/favourites/favourites-bar.component";
+import { FavoritesBar } from "../../../components/favorites/favorites-bar.component";
 
 import { LocationContext } from "../../../services/location/location.context";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
-import { FavouritesContext } from "../../../services/favourites/favourites.context";
+import { FavoritesContext } from "../../../services/favorites/favorites.context";
 
 import { Search } from "../components/search.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
@@ -30,7 +30,7 @@ const LoadingContainer = styled.View`
 export const RestaurantsScreen = ({ navigation }) => {
   const { error: locationError } = useContext(LocationContext);
   const { isLoading, restaurants, error } = useContext(RestaurantsContext);
-  const { favourites } = useContext(FavouritesContext);
+  const { favorites } = useContext(FavoritesContext);
   const [isToggled, setIsToggled] = useState(false);
   const hasError = !!error || !!locationError;
   return (
@@ -41,14 +41,11 @@ export const RestaurantsScreen = ({ navigation }) => {
         </LoadingContainer>
       )}
       <Search
-        isFavouritesToggled={isToggled}
-        onFavouritesToggle={() => setIsToggled(!isToggled)}
+        isFavoritesToggled={isToggled}
+        onFavoritesToggle={() => setIsToggled(!isToggled)}
       />
       {isToggled && (
-        <FavouritesBar
-          favourites={favourites}
-          onNavigate={navigation.navigate}
-        />
+        <FavoritesBar favorites={favorites} onNavigate={navigation.navigate} />
       )}
       {hasError && (
         <Spacer position="left" size="large">

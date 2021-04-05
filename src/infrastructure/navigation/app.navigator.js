@@ -10,7 +10,8 @@ import { CheckoutNavigator } from "./checkout.navigator";
 import { CartContextProvider } from "../../services/cart/cart.context";
 import { RestaurantsContextProvider } from "../../services/restaurants/restaurants.context";
 import { LocationContextProvider } from "../../services/location/location.context";
-import { FavouritesContextProvider } from "../../services/favourites/favourites.context";
+import { FavoritesContextProvider } from "../../services/favorites/favorites.context";
+import { colors } from "../theme/colors";
 
 const Tab = createBottomTabNavigator();
 
@@ -31,15 +32,15 @@ const createScreenOptions = ({ route }) => {
 };
 
 export const AppNavigator = () => (
-  <FavouritesContextProvider>
+  <FavoritesContextProvider>
     <LocationContextProvider>
       <RestaurantsContextProvider>
         <CartContextProvider>
           <Tab.Navigator
             screenOptions={createScreenOptions}
             tabBarOptions={{
-              activeTintColor: "tomato",
-              inactiveTintColor: "gray",
+              activeTintColor: colors.brand.primary,
+              inactiveTintColor: colors.brand.muted,
             }}
           >
             <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
@@ -50,5 +51,5 @@ export const AppNavigator = () => (
         </CartContextProvider>
       </RestaurantsContextProvider>
     </LocationContextProvider>
-  </FavouritesContextProvider>
+  </FavoritesContextProvider>
 );
