@@ -6,12 +6,11 @@ import { RestaurantsNavigator } from "./restaurants.navigator";
 import { SettingsNavigator } from "./settings.navigator";
 import { MapScreen } from "../../features/map/screens/map.screen";
 import { CheckoutNavigator } from "./checkout.navigator";
-
 import { CartContextProvider } from "../../services/cart/cart.context";
 import { RestaurantsContextProvider } from "../../services/restaurants/restaurants.context";
 import { LocationContextProvider } from "../../services/location/location.context";
 import { FavoritesContextProvider } from "../../services/favorites/favorites.context";
-import { colors } from "../theme/colors";
+import { colors } from "../../infrastructure/theme/colors";
 
 const Tab = createBottomTabNavigator();
 

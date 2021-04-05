@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ScrollView } from "react-native";
 import { List, Divider } from "react-native-paper";
 
@@ -22,7 +22,7 @@ import { RestaurantInfoCard } from "../../restaurants/components/restaurant-info
 import { payRequest } from "../../../services/checkout/checkout.service";
 
 export const CheckoutScreen = ({ navigation }) => {
-  const { cart, restaurant, sum, clearCart } = useContext(CartContext);
+  const { cart, restaurant, clearCart, sum } = useContext(CartContext);
   const [name, setName] = useState("");
   const [card, setCard] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -36,10 +36,10 @@ export const CheckoutScreen = ({ navigation }) => {
       });
       return;
     }
-
     payRequest(card.id, sum, name)
       .then((result) => {
         setIsLoading(false);
+        clearCart();
         navigation.navigate("CheckoutSuccess");
       })
       .catch((err) => {
@@ -104,11 +104,12 @@ export const CheckoutScreen = ({ navigation }) => {
           )}
         </Spacer>
         <Spacer position="top" size="xxl" />
+
         <PayButton
           disabled={isLoading}
           icon="cash-usd"
           mode="contained"
-          onPress={onPay()}
+          onPress={onPay}
         >
           Pay
         </PayButton>

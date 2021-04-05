@@ -30,7 +30,7 @@ export const RestaurantDetailScreen = ({ navigation, route }) => {
         >
           <List.Item title="Eggs Benedict" />
           <Divider />
-          <List.Item title="Banana Pancakes" />
+          <List.Item title="Banana Walnut Pancakes" />
         </List.Accordion>
         <Divider />
         <List.Accordion
@@ -39,11 +39,12 @@ export const RestaurantDetailScreen = ({ navigation, route }) => {
           expanded={lunchExpanded}
           onPress={() => setLunchExpanded(!lunchExpanded)}
         >
-          <List.Item title="Pulled Pork Sandwich" />
+          <List.Item title="Chicken Tikka Masala" />
           <Divider />
-          <List.Item title="Chicken Piccata" />
+          <List.Item title="Fish and Chips" />
           <Divider />
-          <List.Item title="Sake Don" />
+          <List.Item title="Super Quesadilla" />
+          <Divider />
         </List.Accordion>
         <Divider />
         <List.Accordion
@@ -52,28 +53,29 @@ export const RestaurantDetailScreen = ({ navigation, route }) => {
           expanded={dinnerExpanded}
           onPress={() => setDinnerExpanded(!dinnerExpanded)}
         >
-          <List.Item title="Spaghetti Bolognese" />
+          <List.Item title="Yellow Curry" />
           <Divider />
-          <List.Item title="Chicken Tikka Masala" />
+          <List.Item title="Chicken Piccata" />
           <Divider />
-          <List.Item title="Super Quesadilla" />
+          <List.Item title="Sake Don" />
         </List.Accordion>
         <Divider />
+
         <List.Accordion
           title="Drinks"
           left={(props) => <List.Icon {...props} icon="cup" />}
           expanded={drinksExpanded}
           onPress={() => setDrinksExpanded(!drinksExpanded)}
         >
-          <List.Item title="Hot Chocolate" />
-          <Divider />
           <List.Item title="Boba Tea" />
           <Divider />
           <List.Item title="Lemonade" />
           <Divider />
           <List.Item title="Mango Lassi" />
           <Divider />
-          <List.Item title="Agua Fresca" />
+          <List.Item title="Horchata" />
+          <Divider />
+          <List.Item title="Hot Chocolate" />
         </List.Accordion>
       </ScrollView>
       <Spacer position="bottom" size="large">

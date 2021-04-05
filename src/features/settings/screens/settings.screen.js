@@ -1,23 +1,19 @@
-import React, { useContext, useCallback, useState } from "react";
-import { TouchableOpacity } from "react-native";
+import React, { useContext } from "react";
 import styled from "styled-components/native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useFocusEffect } from "@react-navigation/native";
 
 import { List, Avatar } from "react-native-paper";
 
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { SafeArea } from "../../../components/utility/safe-area.component";
-import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 import { colors } from "../../../infrastructure/theme/colors";
+import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 
 const TransparentSafeArea = styled(SafeArea)`
   background-color: transparent;
 `;
-
 const SettingsBackground = styled.ImageBackground.attrs({
-  source: require("../../../assets/home_bg.jpg"),
+  source: require("../../../../assets/home_bg.jpg"),
 })`
   position: absolute;
   height: 100%;
@@ -34,39 +30,15 @@ const AvatarContainer = styled.View`
 
 export const SettingsScreen = ({ navigation }) => {
   const { onLogout, user } = useContext(AuthenticationContext);
-  const [photo, setPhoto] = useState(null);
-
-  const getProfilePicture = async (currentUser) => {
-    const photoUri = await AsyncStorage.getItem(`${currentUser.uid}-photo`);
-    setPhoto(photoUri);
-  };
-
-  useFocusEffect(
-    useCallback(() => {
-      getProfilePicture(user);
-    }, [user])
-  );
-
   return (
     <SettingsBackground>
       <TransparentSafeArea>
         <AvatarContainer>
-          <TouchableOpacity onPress={() => navigation.navigate("Camera")}>
-            {!photo && (
-              <Avatar.Icon
-                size={180}
-                icon="account-box"
-                backgroundColor={colors.brand.primary}
-              />
-            )}
-            {photo && (
-              <Avatar.Image
-                size={180}
-                source={{ uri: photo }}
-                backgroundColor={colors.brand.primary}
-              />
-            )}
-          </TouchableOpacity>
+          <Avatar.Icon
+            size={180}
+            icon="human"
+            backgroundColor={colors.brand.primary}
+          />
           <Spacer position="top" size="large">
             <Text variant="label">{user.email}</Text>
           </Spacer>
@@ -81,7 +53,7 @@ export const SettingsScreen = ({ navigation }) => {
             )}
             onPress={() => navigation.navigate("Favorites")}
           />
-          <Spacer position="top" size="medium" />
+          <Spacer />
           <SettingsItem
             title="Payment"
             left={(props) => (
@@ -89,7 +61,7 @@ export const SettingsScreen = ({ navigation }) => {
             )}
             onPress={() => null}
           />
-          <Spacer position="top" size="medium" />
+          <Spacer />
           <SettingsItem
             title="Past Orders"
             left={(props) => (
@@ -101,7 +73,7 @@ export const SettingsScreen = ({ navigation }) => {
             )}
             onPress={() => null}
           />
-          <Spacer position="top" size="medium" />
+          <Spacer />
           <SettingsItem
             title="Logout"
             left={(props) => (

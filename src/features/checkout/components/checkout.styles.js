@@ -2,8 +2,8 @@ import styled from "styled-components/native";
 import {
   Avatar,
   TextInput,
-  Button,
   ActivityIndicator,
+  Button,
   Colors,
 } from "react-native-paper";
 import { colors } from "../../../infrastructure/theme/colors";
@@ -42,7 +42,6 @@ export const PayButton = styled(Button).attrs({
   align-self: center;
   padding: ${(props) => props.theme.space[2]};
 `;
-
 export const ClearButton = styled(Button).attrs({
   color: colors.ui.error,
 })`

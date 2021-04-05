@@ -6,7 +6,7 @@ import { Spacer } from "../spacer/spacer.component";
 import { CompactRestaurantInfo } from "../restaurant/compact-restaurant-info.component";
 import { Text } from "../typography/text.component";
 
-const FavoritesWrapper = styled.Card`
+const FavoritesWrapper = styled(Card)`
   padding: 10px;
   z-index: 999;
   border-radius: 15px;

@@ -1,18 +1,15 @@
 import React from "react";
 
-import {
-  createStackNavigator,
-  CardStyleInterpolators,
-} from "@react-navigation/stack";
-
-import { CheckoutScreen } from "../../features/checkout/screens/checkout.screen";
-import { CheckoutSuccessScreen } from "../../features/checkout/screens/checkout-success.screen";
-import { CheckoutErrorScreen } from "../../features/checkout/screens/checkout-error.screen";
+import { createStackNavigator } from "@react-navigation/stack";
 
 const CheckoutStack = createStackNavigator();
 
+import { CheckoutScreen } from "../../features/checkout/screens/checkout.screen";
+import { CheckoutErrorScreen } from "../../features/checkout/screens/checkout-error.screen";
+import { CheckoutSuccessScreen } from "../../features/checkout/screens/checkout-success.screen";
+
 export const CheckoutNavigator = () => (
-  <CheckoutNavigator headerMode="none">
+  <CheckoutStack.Navigator headerMode="none">
     <CheckoutStack.Screen name="Checkout" component={CheckoutScreen} />
     <CheckoutStack.Screen
       name="CheckoutSuccess"
@@ -22,5 +19,5 @@ export const CheckoutNavigator = () => (
       name="CheckoutError"
       component={CheckoutErrorScreen}
     />
-  </CheckoutNavigator>
+  </CheckoutStack.Navigator>
 );
